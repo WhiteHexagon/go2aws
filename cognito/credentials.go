@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+var cognitoURL string
+
 //FetchNewIdentityFor - see: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html#API_GetId_Examples
 func FetchNewIdentityFor(poolID string) (string, error) {
 	target := "com.amazonaws.cognito.identity.model.AWSCognitoIdentityService.GetId"

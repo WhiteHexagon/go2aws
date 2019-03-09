@@ -6,8 +6,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 )
 
-var cognitoURL string
-
 //SetRegionURL - We need to target the correct AWS Cognito region.  example:  "https://cognito-identity.eu-west-1.amazonaws.com"
 func SetRegionURL(url string) {
 	cognitoURL = url
