@@ -6,9 +6,16 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 )
 
-//GetIdentityFor - If this is a first connect then we need to get an identity for this new client from the configured pool.  Once we have that we should cahce that identity for later use.
+var cognitoURL string
+
+//SetRegionURL - We need to target the correct AWS Cognito region.  example:  "https://cognito-identity.eu-west-1.amazonaws.com"
+func SetRegionURL(url string) {
+	cognitoURL = url
+}
+
+//GetIdentityFor - If this is a new client, then we need to get a new identity from the configured pool.  Once we have that we should cache that identity for later use.
 func GetIdentityFor(poolID string) (string, error) {
-	//TODO check cache, if not provided then fetch and then cache, or do we let the caller manage this? they could pass a func to manage cache? read/writer
+	//TODO check local cache, if not provided then fetch and then cache, or do we let the caller manage this? they could pass a func to manage cache? read/writer
 	return FetchNewIdentityFor(poolID)
 }
 
