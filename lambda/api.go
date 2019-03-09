@@ -40,7 +40,7 @@ func Call(name string, request interface{}, result interface{}) error {
 
 	resp, err := lambdaService.Invoke(&lambda.InvokeInput{FunctionName: &name, Payload: payload})
 	if err != nil {
-		return errors.New("failed to call lambda: " + name + "Reason: " + err.Error() + " Payload " + string(payload))
+		return errors.New("failed to call lambda: " + name + " Reason: " + err.Error() + " Payload " + string(payload))
 	}
 
 	if *resp.StatusCode != 200 {
